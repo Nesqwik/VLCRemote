@@ -1,0 +1,129 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="fr.nesqwik.vlcremote.RemoteActivity" >
+
+    <SeekBar
+        android:id="@+id/sb_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/def_position0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tv_remains"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_time"
+        android:layout_alignBottom="@+id/tv_time"
+        android:layout_alignRight="@+id/sb_position"
+        android:text="@string/def_position0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tv_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_time"
+        android:layout_alignBottom="@+id/tv_time"
+        android:layout_alignLeft="@+id/sb_position"
+        android:text="@string/def_position0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sb_position"
+        android:layout_alignRight="@+id/sb_position"
+        android:layout_below="@+id/sb_position" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/b_previousTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:onClick="doPreviousTrack"
+                android:src="@drawable/ic_previous_track" />
+
+            <ImageButton
+                android:id="@+id/b_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:onClick="doStop"
+                android:src="@drawable/ic_stop" />
+
+            <ImageButton
+                android:id="@+id/b_togglePause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:onClick="doTogglePause"
+                android:src="@drawable/ic_pause" />
+
+            <ImageButton
+                android:id="@+id/b_nextTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:onClick="doNextTrack"
+                android:src="@drawable/ic_next_track" />
+        </TableRow>
+    </TableLayout>
+
+    <SeekBar
+        android:id="@+id/sb_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/tv_remains"
+        android:layout_toRightOf="@+id/tv_length" />
+
+    <ImageView
+        android:id="@+id/ic_volumeLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tableLayout1"
+        android:layout_alignTop="@+id/sb_volume"
+        android:src="@drawable/ic_volume_low" />
+
+    <ListView
+        android:id="@+id/lv_playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sb_volume"
+        android:layout_alignLeft="@+id/tableLayout1"
+        android:layout_below="@+id/tableLayout1" >
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/ic_volumeHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/lv_playlist"
+        android:layout_below="@+id/lv_playlist"
+        android:src="@drawable/ic_volume_high" />
+
+</RelativeLayout>
